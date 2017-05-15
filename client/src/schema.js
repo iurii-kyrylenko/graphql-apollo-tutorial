@@ -1,4 +1,6 @@
-export const typeDefs  = `
+import { makeExecutableSchema } from 'graphql-tools'
+
+const typeDefs  = `
   type Channel {
     id: ID!
     name: String
@@ -8,3 +10,4 @@ export const typeDefs  = `
     channels: [Channel]
   }
 `
+export default makeExecutableSchema({ typeDefs })
