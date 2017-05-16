@@ -5,14 +5,22 @@ import { channelsListQuery } from './ChannelListWithData'
 const AddChannel = ({ mutate }) => {
   const handleKeyUp = (e) => {
     if (e.keyCode === 13) {
-      e.persist() // http://cheng.logdown.com/posts/2016/03/23/672523
       mutate({
-        refetchQueries: [{ query: channelsListQuery }],
-        variables: { name: e.target.value }
+        variables: { name: e.target.value },
+        optimisticResponse: {
+          addChannel: {
+            __typename: 'Channel',
+            name: e.target.value,
+            id: Math.floor(-10000 * Math.random())
+          }
+        },
+        update: (store, { data: { addChannel } }) => {
+          const data = store.readQuery({ query: channelsListQuery })
+          data.channels.push(addChannel)
+          store.writeQuery({ query: channelsListQuery, data })
+        }
       })
-      .then(() => {
-        e.target.value = ''        
-      })
+      e.target.value = ''
     }
   }
   return (

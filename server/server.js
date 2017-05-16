@@ -6,6 +6,10 @@ const app = express()
 const schema = require('./schema')
 
 app.use('*', cors({ origin: 'http://localhost:3000' }))
+
+// Latency simulation
+// app.use((req, res, next) => { setTimeout(next, 1000) })
+
 app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }))
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }))
 

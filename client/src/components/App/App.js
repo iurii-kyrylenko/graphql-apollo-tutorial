@@ -13,6 +13,11 @@ const networkInterface = createNetworkInterface({
   uri: 'http://localhost:4000/graphql'
 })
 
+// Latency simulation
+networkInterface.use([{
+  applyMiddleware(req, next) { setTimeout(next, 1000) },
+}]);
+
 const client = new ApolloClient({ networkInterface })
 
 class App extends Component {
