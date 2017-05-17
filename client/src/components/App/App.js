@@ -4,12 +4,10 @@ import {
   ApolloProvider,
   createNetworkInterface
 } from 'react-apollo'
-import schema from '../../schema'
 import './App.css'
 import ChannelListWithData from '../ChannelListWithData'
 
 const networkInterface = createNetworkInterface({
-  schema,
   uri: 'http://localhost:4000/graphql'
 })
 
