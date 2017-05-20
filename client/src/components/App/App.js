@@ -5,7 +5,7 @@ import {
   createNetworkInterface
 } from 'react-apollo'
 import './App.css'
-import ChannelListWithData from '../ChannelListWithData'
+import ChannelListWithData from '../ChannelList'
 
 const networkInterface = createNetworkInterface({
   uri: 'http://localhost:4000/graphql'
