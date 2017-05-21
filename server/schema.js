@@ -14,6 +14,10 @@ const typeDefs  = `
   type Mutation {
     addChannel(name: String!): Channel
   }
+
+  type Subscription {
+    channelAdded: Channel
+  }
 `
 const schema = makeExecutableSchema({ typeDefs, resolvers })
 

@@ -1,3 +1,5 @@
+const pubsub = require('./pubsub')
+
 const channels = [
   {
     id: 1,
@@ -16,9 +18,16 @@ const resolvers = {
     channels: () => channels
   },
   Mutation: {
-    addChannel(obj, { name }) {
+    addChannel (obj, { name }) {
       const channel = { id: nextId++, name }
       channels.push(channel)
+      pubsub.publish('channelAdded', channel)
+      return channel
+    }
+  },
+  Subscription: {
+    channelAdded (channel) {
+      console.log(channel)
       return channel
     }
   }
