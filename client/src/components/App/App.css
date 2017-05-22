@@ -97,3 +97,8 @@ div.channel span {
   position: absolute;
   left: 10px;
 }
+
+div.notifier {
+  margin-left: 60px;
+  color: #0f0;
+}

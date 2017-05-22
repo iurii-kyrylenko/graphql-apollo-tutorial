@@ -5,7 +5,8 @@
   "dependencies": {
     "react": "^15.5.4",
     "react-apollo": "^1.2.0",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "subscriptions-transport-ws": "^0.6.0"
   },
   "devDependencies": {
     "apollo-test-utils": "^0.3.0",
