@@ -1,21 +1,21 @@
 import React from 'react'
 import { gql, graphql } from 'react-apollo'
-import { channelsListQuery } from './ChannelList'
+// import { channelsListQuery } from './ChannelList'
 
 const options = (name) => ({
   variables: { name },
-  optimisticResponse: {
-    addChannel: {
-      __typename: 'Channel',
-      name,
-      id: -1
-    }
-  },
-  update: (store, { data: { addChannel } }) => {
-    const data = store.readQuery({ query: channelsListQuery })
-    data.channels.push(addChannel)
-    store.writeQuery({ query: channelsListQuery, data })
-  }
+  // optimisticResponse: {
+  //   addChannel: {
+  //     __typename: 'Channel',
+  //     name,
+  //     id: -1
+  //   }
+  // },
+  // update: (store, { data: { addChannel } }) => {
+  //   const data = store.readQuery({ query: channelsListQuery })
+  //   data.channels.push(addChannel)
+  //   store.writeQuery({ query: channelsListQuery, data })
+  // }
 })
 
 const AddChannel = ({ mutate }) => {

@@ -11,20 +11,20 @@ const query = gql`
 `
 
 class Notifier extends React.Component {
+
   constructor (props) {
     super(props)
     this.state = null
     const self = this
-    this.subscription = this.props.client
-      .subscribe({ query })
-      .subscribe({
-        next (data) {
-          self.setState(data)
-        },
-        error (err) {
-          console.log('Error:', err)
-        }
-      })
+    this.subscription = this.props.client.subscribe({ query })
+    .subscribe({
+      next (data) {
+        self.setState(data)
+      },
+      error (err) {
+        console.log('Error:', err)
+      }
+    })
   }
 
   render () {

@@ -9,7 +9,7 @@ import {
   addGraphQLSubscriptions
 } from 'subscriptions-transport-ws'
 import './App.css'
-import ChannelListWithData from '../ChannelList'
+import ChannelList from '../ChannelList'
 import Notifier from '../Notifier'
 
 const wsClient = new SubscriptionClient(
@@ -35,7 +35,7 @@ class App extends Component {
         <div className="App">
           <div className="navbar">React + GraphQL Tutorial</div>
           <Notifier />
-          <ChannelListWithData />
+          <ChannelList />
         </div>
       </ApolloProvider>
     );
